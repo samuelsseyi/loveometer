@@ -1,64 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love-O-Meter</title>
-  <link rel="icon" href="img/t.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love-O-Meter</title>
+    <link rel="icon" href="img/t.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Workbench&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Workbench&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container m-2 m-lg-3 rounded-3 shadow-lg" id="userDashboard">
+      <h1 class="my-3 text-light fw-bold text-center">
+        Love-O-Meter
+        <img
+          src="img/t.png"
+          alt=""
+          class="p-3 rounded-3 col-3 col-md-2 col-lg-1 animate__animated animate__pulse animate__infinite infinite"
+        />
+      </h1>
 
-</head>
-<body>
-  
-  <div class="container m-2 m-lg-3 rounded-3 shadow-lg" id="userDashboard">
-    <h1 class="my-3 text-light fw-bold text-center">Love-O-Meter <img src="img/t.png" alt="" class=" p-3 rounded-3 col-3 col-md-2 col-lg-1 animate__animated animate__pulse animate__infinite	infinite"></h1>
+      <div class="container p-2">
+        <div class="row text-center" style="justify-content: space-evenly">
+          <!--First Section Div-->
+          <div class="col-12 col-md-5">
+            <img src="img/t (1).png" alt="" class="col-4" />
+            <div>
+              <label for="maleInput" class="my-4"
+                >Hey Casanova! Enter Your Name Here</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Male"
+                id="maleInput"
+              />
+            </div>
+          </div>
 
-    <div class="container p-2">
-      <div class="row text-center" style="justify-content: space-evenly;">
-
-        <!--First Section Div-->
-        <div class="col-12 col-md-5">
-          <img src="img/t (1).png" alt="" class="col-4">
-          <div>
-            <label for="maleInput" class="my-4">Hey Casanova! Enter Your Name Here</label>
-            <input type="text" class="form-control" placeholder="Male" id="maleInput">
+          <!--Second Section Div-->
+          <div class="col-12 col-md-5 mt-5 mt-md-0">
+            <img src="img/tl.png" alt="" class="col-4" />
+            <div>
+              <label for="" class="my-3"
+                >Hey Cinderella! Enter Your Name Here</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Female"
+                id="femaleInput"
+              />
+            </div>
           </div>
         </div>
-
-        <!--Second Section Div-->
-        <div class="col-12 col-md-5 mt-5 mt-md-0">
-          <img src="img/tl.png" alt="" class="col-4">
-          <div>
-            <label for="" class="my-3">Hey Cinderella! Enter Your Name Here</label>
-            <input type="text" class="form-control" placeholder="Female" id="femaleInput">
+        <div class="text-center">
+          <button
+            class="mt-4 btn p-3 shadow-lg text-light fw-bold text-center"
+            id="loveButton"
+            onclick="loveButton()"
+          >
+            Calculate Love Level
+          </button>
+          <div
+            id="errorDiv"
+            class="bg-danger text-light rounded-3 my-3 fs-3 animate__animated animate__headShake animate__infinite"
+            style="display: none"
+          >
+            vvv
           </div>
         </div>
-
       </div>
-      <div class="text-center">
-        <Button class=" mt-4 btn p-3 shadow-lg text-light fw-bold text-center" id="loveButton" onclick="loveButton()">Calculate Love Level</Button>
-        <div id="errorDiv" class="bg-danger text-light rounded-3 my-3 fs-3 animate__animated animate__headShake animate__infinite" style="display: none;">vvv </div>
+
+      <div class="container">
+        <div class="m-3 row" style="display: none" id="show">
+          <div
+            class="text-center fs-3 text-danger fw-bold my-3"
+            id="loverNames"
+          ></div>
+          <p
+            class="fs-3 text-center my-2fw-bold text-light p-3 rounded-3 shadow-lg d-inline-block"
+            id="lovePercent"
+            style="border: solid 1px white"
+          >
+            50%:
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class=" m-3 row" style="display: none;" id="show">
-        <div class="text-center fs-3  text-danger fw-bold my-3" id="loverNames"></div>
-        <p class="fs-3 text-center my-2fw-bold text-light p-3 rounded-3 shadow-lg d-inline-block" id="lovePercent" style="border: solid 1px white;"> 50%:</p>
-      </div>
-    </div>
-  </div>
-
- 
-  
-
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
