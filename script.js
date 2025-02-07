@@ -15,7 +15,7 @@ const loveButton = () => {
       "loverNames"
     ).innerHTML = `${maleInput} & ${femaleInput}`;
 
-    let loveLevel = Math.round(Math.random() * 100);
+    let loveLevel = Math.round(Math.random() * 100) + 1;
 
     if (loveLevel <= 20) {
       document.getElementById(
@@ -32,11 +32,11 @@ const loveButton = () => {
     } else if (loveLevel <= 80) {
       document.getElementById(
         "lovePercent"
-      ).innerHTML = `${loveLevel}%: 💖 Love's in the air! `;
+      ).innerHTML = `${loveLevel}%: ❤️ Love's in the air! `;
     } else if (loveLevel <= 100) {
       document.getElementById(
         "lovePercent"
-      ).innerHTML = `${loveLevel}%: 💖 True love alert, It's happily ever after time💍🎉`;
+      ).innerHTML = `${loveLevel}%: ❤️ True love alert, It's happily ever after time💍🎉`;
     }
   }
 
